@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: JAVA_PROJECT_MARIADB
+    ports:
+      - "3306:3306"
+    environment:
+      MARIADB_USER: "anna"
+      MARIADB_PASSWORD: "chat"
+      MARIADB_ROOT_PASSWORD: "rootchat"
+      MARIADB_DATABASE: "PROJET"
+    volumes:
+      - mariadb-data:/var/lib/mysql
+
+  adminer:
+    image: adminer:latest
+    container_name: JAVA_PROJECT_ADMINER
+    environment:
+      ADMINER_DESIGN: "nette"
+      ADMINER_DEFAULT_SERVER: "mariadb"
+    ports:
+      - "8888:8080"
+
+volumes:
+  mariadb-data:
+    driver: local
