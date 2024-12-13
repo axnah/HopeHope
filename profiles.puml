@@ -1,0 +1,31 @@
+@startuml
+
+!define ADMINISTRATEUR "Administrateur"
+!define ENSEIGNANT "Enseignant"
+!define UTILISATEUR "Utilisateur"
+
+package "Profils" {
+  class Utilisateur {
+    + seConnecter()
+    + seDeconnecter()
+    + consulterSynthese()
+    + ajouterFeedback()
+  }
+
+  class Enseignant {
+    + proposerNouvelOutil()
+    + modifierChamps()
+  }
+
+  class Administrateur {
+    + validerAjouts()
+    + ajouterNouvelOutil()
+    + supprimerOutil()
+    + modifierChamps()
+  }
+}
+
+Utilisateur <|-- Enseignant
+Enseignant <|-- Administrateur
+
+@enduml
