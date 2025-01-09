@@ -50,26 +50,22 @@ public class ExcelService {
 
     private String getCellValueAsString(Cell cell) {
         if (cell == null) return null;
+        String value;
         switch (cell.getCellType()) {
-            case STRING -> {
-                return cell.getStringCellValue();
-            }
+            case STRING -> value = cell.getStringCellValue();
             case NUMERIC -> {
                 if (DateUtil.isCellDateFormatted(cell)) {
-                    return cell.getDateCellValue().toString();
+                    value = cell.getDateCellValue().toString();
                 } else {
-                    return String.valueOf(cell.getNumericCellValue());
+                    value = String.valueOf(cell.getNumericCellValue());
                 }
             }
-            case BOOLEAN -> {
-                return String.valueOf(cell.getBooleanCellValue());
-            }
-            case FORMULA -> {
-                return cell.getCellFormula();
-            }
-            default -> {
-                return null;
-            }
+            case BOOLEAN -> value = String.valueOf(cell.getBooleanCellValue());
+            case FORMULA -> value = cell.getCellFormula();
+            default -> value = null;
         }
+        // Truncate if the length exceeds a certain limit
+        return (value != null && value.length() > 255) ? value.substring(0, 255) : value;
     }
+
 }
