@@ -17,8 +17,12 @@ public abstract class User {
     private String lastName;
 
     @Column(nullable = false, unique = true)
+    @Email
     private String email;
 
     @Column(nullable = false)
     private String password;
+
+    @Column(nullable = false)
+    private String role;
 }
