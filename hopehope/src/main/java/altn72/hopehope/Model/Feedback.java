@@ -7,7 +7,7 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Feedback {
+public class FeedBack {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,4 +18,8 @@ public class Feedback {
     @ManyToOne
     @JoinColumn(name = "tool_id", nullable = false)
     private Tool tool;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 }
