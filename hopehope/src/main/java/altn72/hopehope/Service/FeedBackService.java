@@ -23,7 +23,7 @@ public class FeedBackService {
                 .collect(Collectors.toList());
     }
 
-    public FeedBack saveFeedback(FeedBack feedBack) {
+    public FeedBack saveFeedBack(FeedBack feedBack) {
         return feedBackRepository.save(feedBack);
     }
 }

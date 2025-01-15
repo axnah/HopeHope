@@ -14,4 +14,6 @@ public class ToolDTO {
     private String link;
     private String accessTutorial;
 
+    public ToolDTO(Long id, String title, String domain, String simpleDescription, String link) {
+    }
 }
