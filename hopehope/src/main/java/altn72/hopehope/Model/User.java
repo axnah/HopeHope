@@ -5,7 +5,7 @@ import jakarta.validation.constraints.Email;
 import lombok.*;
 
 @Data
-@MappedSuperclass
+@Entity
 public abstract class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
