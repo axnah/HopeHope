@@ -12,8 +12,8 @@ public class AuthController {
         return "login";
     }
 
-    @GetMapping("/home")
-    public String home(Model model) {
-        return "home";
+    @GetMapping("/")
+    public String index() {
+        return "redirect:/api/excel/view";
     }
 }
