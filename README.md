@@ -174,3 +174,4 @@ Pour visualiser la documentation des endpoints REST :
   - Calvino Felisaz Arthur
   - Nieto Anna
   - Faouzi Elias
+  - Benanane Ilyes
