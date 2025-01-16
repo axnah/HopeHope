@@ -22,13 +22,14 @@ public class ExcelController {
     private ToolService toolService;
 
     @PostMapping("/import")
-    public String importExcel() {
+    public String importExcel(Model model) {
         try {
             excelService.importExcelData();
-            return "Data imported successfully!";
+            model.addAttribute("notification", "Data imported successfully!");
         } catch (RuntimeException e) {
-            return "Failed to import data: " + e.getMessage();
+            model.addAttribute("error", "Failed to import data: " + e.getMessage());
         }
+        return "redirect:/api/excel/view"; // Redirige vers la page de visualisation
     }
 
     @GetMapping("/view")
@@ -45,5 +46,12 @@ public class ExcelController {
         model.addAttribute("tools", filteredTools);
         return "excelView";
     }
+
+    @GetMapping("/delete/{id}")
+    public String deleteTool(@PathVariable Long id) {
+        toolService.deleteTool(id);
+        return "redirect:/api/excel/view"; // Redirige vers la liste mise à jour
+    }
+
 
 }
