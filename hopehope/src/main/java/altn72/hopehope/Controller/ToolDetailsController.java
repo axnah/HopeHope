@@ -1,6 +1,5 @@
 package altn72.hopehope.Controller;
 
-import altn72.hopehope.Dto.ToolDTO;
 import altn72.hopehope.Model.Tool;
 import altn72.hopehope.Service.ToolService;
 import org.springframework.stereotype.Controller;
@@ -9,8 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.Optional;
+import org.springframework.web.server.ResponseStatusException;
 
 @Controller
 @RequestMapping("/tools")
@@ -21,12 +19,20 @@ public class ToolDetailsController {
 
     @GetMapping("/{id}/details")
     public String getToolDetails(@PathVariable Long id, Model model) {
-        Tool tool = toolService.getToolById(id);
-        if (tool!=null) {
-            model.addAttribute("tool", tool);
-            return "toolDetails";
-        } else {
-            return "redirect:/api/excel/view";
+        try {
+            Tool tool = toolService.getToolById(id);
+            if (tool != null) {
+                model.addAttribute("tool", tool);
+                return "toolDetails";
+            } else {
+                return "redirect:/api/excel/view";
+            }
+        } catch (Exception e) {
+            throw new ResponseStatusException(
+                    org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR,
+                    "An error occurred while fetching tool details",
+                    e
+            );
         }
     }
 }
