@@ -1,31 +1,31 @@
 package altn72.hopehope.Model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 import lombok.*;
 
-@Data
 @Entity
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class Tool {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private String firstName;
+    private String title;
 
     @Column(nullable = false)
-    private String lastName;
+    private String domain;
 
-    @Column(nullable = false, unique = true)
-    @Email
-    private String email;
+    @Column(length = 500)
+    private String simpleDescription;
+
+    @Lob
+    private String detailedDescription;
 
     @Column(nullable = false)
-    private String password;
+    private String link;
 
-    @Column(nullable = false)
-    private String role;
+    private String accessTutorial;
 }
