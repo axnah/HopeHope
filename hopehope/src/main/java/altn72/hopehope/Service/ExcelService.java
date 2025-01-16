@@ -74,8 +74,4 @@ public class ExcelService {
     public List<Tool> getAllTools() {
         return toolRepository.findAll();
     }
-
-    public List<Tool> searchTools(String keyword) {
-        return toolRepository.findToolsByKeyword(keyword);
-    }
 }
