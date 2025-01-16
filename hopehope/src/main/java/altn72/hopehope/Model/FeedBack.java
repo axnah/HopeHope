@@ -20,6 +20,6 @@ public class FeedBack {
     private Tool tool;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = true)
     private User user;
 }

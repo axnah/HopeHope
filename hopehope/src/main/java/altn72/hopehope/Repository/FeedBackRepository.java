@@ -1,6 +1,5 @@
 package altn72.hopehope.Repository;
 
-import altn72.hopehope.Model.Tool;
 import altn72.hopehope.Model.FeedBack;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

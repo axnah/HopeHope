@@ -26,15 +26,21 @@ public class FeedBackController {
     }
 
     @PostMapping("/add")
-    public String addFeedBack(@RequestParam Long toolId, @RequestParam String comment) {
-        Tool tool = toolRepository.findById(toolId)
-                .orElseThrow(() -> new RuntimeException("Tool not found"));
+    public String addFeedBack(@RequestParam Long toolId, @RequestParam String comment, Model model) {
+        try {
+            Tool tool = toolRepository.findById(toolId)
+                    .orElseThrow(() -> new RuntimeException("Tool not found"));
 
-        FeedBack feedback = new FeedBack();
-        feedback.setComment(comment);
-        feedback.setTool(tool);
-        feedBackService.saveFeedBack(feedback);
+            FeedBack feedback = new FeedBack();
+            feedback.setComment(comment);
+            feedback.setTool(tool);
+            feedBackService.saveFeedBack(feedback);
 
-        return "redirect:/api/excel/view";
+            return "redirect:/api/excel/view";
+        } catch (Exception e) {
+            model.addAttribute("message", "Erreur lors de l'ajout du feedback : " + e.getMessage());
+            return "error";
+        }
     }
+
 }
