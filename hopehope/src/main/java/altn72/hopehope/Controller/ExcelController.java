@@ -39,7 +39,7 @@ public class ExcelController {
         return "excelView";
     }
 
-    @GetMapping("/api/excel/search")
+    @GetMapping("/search")
     public String searchTools(@RequestParam("keyword") String keyword, Model model) {
         List<Tool> filteredTools = toolService.searchTools(keyword);
         model.addAttribute("tools", filteredTools);

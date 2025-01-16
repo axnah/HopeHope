@@ -108,12 +108,13 @@
 <h1><i class="fas fa-tools"></i> List of Tools</h1>
 
 <div class="search-bar">
-    <form method="get" action="/api/excel/search">
-        <input type="text" name="keyword" placeholder="Search tools by title or domain..." required>
-        <button type="submit" class="btn btn-primary">
-            <i class="fas fa-search"></i> Search
-        </button>
+    <!-- Search bar -->
+    <form method="get" action="/api/excel/search" class="search-bar">
+        <input type="text" name="keyword" class="form-control d-inline-block" style="width: 50%;" placeholder="Search tools by title or domain..." required>
+        <button type="submit" class="btn btn-primary">Search</button>
+        <a href="/api/excel/view" class="btn btn-secondary">Reset</a>
     </form>
+
 </div>
 
 <div class="table-container">
