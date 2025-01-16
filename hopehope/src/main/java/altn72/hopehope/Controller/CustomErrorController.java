@@ -13,7 +13,6 @@ public class CustomErrorController implements ErrorController {
     @RequestMapping("/error")
     public String handleError(HttpServletRequest request, HttpServletResponse response, Model model) {
         Object status = request.getAttribute("javax.servlet.error.status_code");
-
         if (status != null) {
             int statusCode = Integer.parseInt(status.toString());
 

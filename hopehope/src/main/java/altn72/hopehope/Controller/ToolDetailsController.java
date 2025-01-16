@@ -21,9 +21,9 @@ public class ToolDetailsController {
 
     @GetMapping("/{id}/details")
     public String getToolDetails(@PathVariable Long id, Model model) {
-        Optional<ToolDTO> tool = toolService.getToolById(id);
-        if (tool.isPresent()) {
-            model.addAttribute("tool", tool.get());
+        Tool tool = toolService.getToolById(id);
+        if (tool!=null) {
+            model.addAttribute("tool", tool);
             return "toolDetails";
         } else {
             return "redirect:/api/excel/view";

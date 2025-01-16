@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.Optional;;
 import java.util.stream.Collectors;
 
 @Service
@@ -19,6 +19,8 @@ public class ToolService {
 
     @Autowired
     private ToolRepository toolRepository;
+
+    private ToolMapper toolMapper;
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -37,9 +39,8 @@ public class ToolService {
                 .collect(Collectors.toList());
     }
 
-    public Optional<ToolDTO> getToolById(Long id) {
-        return toolRepository.findById(id)
-                .map(ToolMapper::toDTO);
+    public Tool getToolById(Long id) {
+        return toolRepository.findById(id).get();
     }
 
     public Tool saveTool(Tool tool) {

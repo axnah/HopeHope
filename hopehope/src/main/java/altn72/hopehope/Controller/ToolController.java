@@ -23,10 +23,9 @@ public class ToolController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ToolDTO> getToolById(@PathVariable Long id) {
-        Optional<ToolDTO> toolDTO = toolService.getToolById(id);
-        return toolDTO.map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+    public ResponseEntity<Tool> getToolById(@PathVariable Long id) {
+        Tool tool = toolService.getToolById(id);
+        return ResponseEntity.ok(tool);
     }
 
     @PostMapping
