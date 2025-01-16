@@ -1,5 +1,6 @@
 package altn72.hopehope.Dto;
 
+import altn72.hopehope.Model.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -10,5 +11,5 @@ public class UserDTO {
     private String firstName;
     private String lastName;
     private String email;
-    private String role;
+    private Role role;
 }
