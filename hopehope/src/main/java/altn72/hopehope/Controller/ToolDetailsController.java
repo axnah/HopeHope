@@ -2,6 +2,7 @@ package altn72.hopehope.Controller;
 
 import altn72.hopehope.Model.Tool;
 import altn72.hopehope.Service.ToolService;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class ToolDetailsController {
             } else {
                 return "redirect:/api/excel/view";
             }
-        } catch (Exception e) {
+        } catch (EntityNotFoundException e) {
             throw new ResponseStatusException(
                     org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR,
                     "An error occurred while fetching tool details",

@@ -35,7 +35,6 @@ public class ExcelController {
     @GetMapping("/view")
     public String viewExcelData(Model model) {
         List<Tool> tools = excelService.getAllTools();
-        System.out.println("Data retrieved: " + tools.size() + " items");
         model.addAttribute("tools", tools);
         return "excelView";
     }

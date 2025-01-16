@@ -6,7 +6,9 @@ import lombok.*;
 
 @Data
 @Entity
-public abstract class User {
+@NoArgsConstructor
+@AllArgsConstructor
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

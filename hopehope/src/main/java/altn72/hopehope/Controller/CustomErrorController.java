@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.io.IOException;
+
 @Controller
 public class CustomErrorController implements ErrorController {
 
@@ -20,7 +22,7 @@ public class CustomErrorController implements ErrorController {
                 try {
                     response.sendRedirect("/api/excel/view");
                     return null;
-                } catch (Exception e) {
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }

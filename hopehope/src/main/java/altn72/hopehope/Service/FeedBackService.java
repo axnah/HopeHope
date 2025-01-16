@@ -16,11 +16,8 @@ public class FeedBackService {
     @Autowired
     private FeedBackRepository feedBackRepository;
 
-    public List<FeedBackDTO> getFeedBacksByTool(Long toolId) {
-        return feedBackRepository.findByToolId(toolId)
-                .stream()
-                .map(FeedBackMapper::toDTO)
-                .collect(Collectors.toList());
+    public List<FeedBack> getFeedBacksByTool(Long toolId) {
+        return feedBackRepository.findByToolId(toolId);
     }
 
     public void saveFeedBack(FeedBack feedBack) {

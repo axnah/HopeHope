@@ -22,14 +22,8 @@ public class ToolService {
 
     private ToolMapper toolMapper;
 
-    @PersistenceContext
-    private EntityManager entityManager;
-
-    @Transactional
     public void saveAll(List<Tool> tools) {
-        for (Tool tool : tools) {
-            entityManager.persist(tool);
-        }
+        toolRepository.saveAll(tools);
     }
 
     public List<ToolDTO> getAllTools() {
