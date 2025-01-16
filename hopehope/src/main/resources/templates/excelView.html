@@ -101,7 +101,9 @@
         <tbody>
         <tr th:each="tool : ${tools}">
             <td th:text="${tool.id}"></td>
-            <td th:text="${tool.title}"></td>
+            <td>
+                <a th:href="@{/tools/{id}/details(id=${tool.id})}" th:text="${tool.title}" class="table-link"></a>
+            </td>
             <td th:text="${tool.domain}"></td>
             <td th:text="${tool.simpleDescription}"></td>
             <td><a th:href="${tool.link}" th:text="${tool.link}" class="table-link"></a></td>
