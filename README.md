@@ -75,6 +75,18 @@ Construisez et démarrez l'application Spring Boot avec Maven :
 mvn spring-boot:run
 ```
 
+Lancez une requête post sur postman ou insomnia : 
+
+http://localhost:8080/api/excel/import
+
+OU
+
+Si vous avez curl, lancez la commande suivante à la racine du projet : 
+
+curl -X POST "http://localhost:8080/api/excel/import"
+
+Pour importer les données de l'excel
+
 ### 5. Accéder à l'application
 
 - **Application Web** : [http://localhost:8080](http://localhost:8080)
