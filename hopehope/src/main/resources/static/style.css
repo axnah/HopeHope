@@ -1,0 +1,100 @@
+/* Style général pour le header */
+header {
+    background-color: #85c1e9; /* Bleu pâle */
+    color: white; /* Texte blanc */
+    display: flex;
+    justify-content: center; /* Centrer le logo */
+    align-items: center;
+    padding: 15px 30px; /* Espacements confortables */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre douce */
+    position: relative; /* Nécessaire pour le menu déroulant */
+}
+
+/* Logo centré */
+.logo {
+    font-size: 28px; /* Taille plus grande */
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+    text-align: center;
+}
+
+/* Menu déroulant aligné à droite */
+.menu-right {
+    position: absolute; /* Position relative au header */
+    right: 30px; /* Espacement à droite */
+    top: 50%; /* Aligner verticalement */
+    transform: translateY(-50%);
+}
+
+.menu-right button {
+    background-color: #5dade2; /* Bleu un peu plus foncé */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px; /* Boutons arrondis */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+.menu-right button:hover {
+    background-color: #3498db; /* Bleu plus intense au survol */
+}
+
+.menu-right .dropdown {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: #ffffff; /* Fond blanc */
+    border: 1px solid #dee2e6; /* Bordure grise douce */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+    border-radius: 8px; /* Coins arrondis */
+    overflow: hidden; /* Empêche le débordement */
+}
+
+.menu-right .dropdown a {
+    text-decoration: none;
+    padding: 12px 20px;
+    color: #343a40; /* Texte gris foncé */
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-right .dropdown a:hover {
+    background-color: #f8f9fa; /* Fond gris pâle au survol */
+    color: #007bff; /* Texte bleu au survol */
+}
+
+.menu-right:hover .dropdown {
+    display: flex;
+}
+
+/* Animation de transition */
+button, a {
+    transition: all 0.3s ease;
+}
+
+/* Style global pour le body */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; /* Fond gris pâle */
+    color: #343a40; /* Texte gris foncé */
+    line-height: 1.6;
+    padding: 0;
+}
+
+/* H1 Stylé */
+h1 {
+    color: #343a40;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 50px;
+}
