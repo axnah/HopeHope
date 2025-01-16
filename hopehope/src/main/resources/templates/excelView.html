@@ -99,6 +99,7 @@
             <th>Simple Description</th>
             <th>Link</th>
             <th>Actions</th>
+            <th>Feedback</th> <!-- Nouvelle colonne -->
         </tr>
         </thead>
         <tbody>
@@ -113,6 +114,11 @@
             <td>
                 <a th:href="@{'/api/excel/delete/' + ${tool.id}}" class="delete-icon">
                     <i class="fas fa-trash-alt"></i>
+                </a>
+            </td>
+            <td>
+                <a th:href="@{'/api/feedback/form/' + ${tool.id}}" class="feedback-icon" title="Add Feedback">
+                    <i class="fas fa-comment-dots"></i> <!-- Icône de feedback -->
                 </a>
             </td>
         </tr>
