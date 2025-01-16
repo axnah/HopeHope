@@ -42,7 +42,7 @@ public class ToolController {
     }
 
     @GetMapping("/search")
-    public List<ToolDTO> searchTools(@RequestParam String keyword) {
+    public List<Tool> searchTools(@RequestParam String keyword) {
         return toolService.searchTools(keyword);
     }
 }

@@ -50,10 +50,7 @@ public class ToolService {
         toolRepository.deleteById(id);
     }
 
-    public List<ToolDTO> searchTools(String keyword) {
-        return toolRepository.searchByKeyword(keyword)
-                .stream()
-                .map(ToolMapper::toDTO)
-                .collect(Collectors.toList());
+    public List<Tool> searchTools(String keyword) {
+        return toolRepository.findToolsByKeyword(keyword);
     }
 }

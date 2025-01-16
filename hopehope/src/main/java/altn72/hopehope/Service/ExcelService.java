@@ -1,6 +1,7 @@
 package altn72.hopehope.Service;
 
 import altn72.hopehope.Model.Tool;
+import altn72.hopehope.Repository.ToolRepository;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,9 @@ public class ExcelService {
 
     @Autowired
     private ToolService toolService;
+
+    @Autowired
+    private ToolRepository toolRepository;
 
     public void importExcelData() {
         try {
@@ -64,8 +68,14 @@ public class ExcelService {
             case FORMULA -> value = cell.getCellFormula();
             default -> value = null;
         }
-        // Truncate if the length exceeds a certain limit
         return (value != null && value.length() > 255) ? value.substring(0, 255) : value;
     }
 
+    public List<Tool> getAllTools() {
+        return toolRepository.findAll();
+    }
+
+    public List<Tool> searchTools(String keyword) {
+        return toolRepository.findToolsByKeyword(keyword);
+    }
 }
