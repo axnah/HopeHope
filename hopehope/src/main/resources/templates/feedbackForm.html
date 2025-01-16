@@ -87,8 +87,13 @@
             </div>
             <div class="feedback-list">
                 <h3 class="text-center mt-4">Feedbacks for this Tool</h3>
-                <div th:each="feedback : ${feedbacks}" class="feedback-item">
-                    <p><strong th:text="${feedback.comment}"></strong></p>
+                <div th:if="${feedBacks.isEmpty()}">
+                    <p class="text-center text-muted">No feedback available for this tool.</p>
+                </div>
+                <div th:each="feedback : ${feedBacks}" class="card mb-3">
+                    <div class="card-body">
+                        <p class="card-text" th:text="${feedback.comment}"></p>
+                    </div>
                 </div>
             </div>
         </div>

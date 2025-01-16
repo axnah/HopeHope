@@ -68,7 +68,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <i class="fas fa-plus-circle"></i> Ajouter un Outil
+                    <i class="fas fa-plus-circle"></i> Add a tool
                 </div>
                 <div class="card-body">
                     <form action="/api/tools" method="post" onsubmit="handleFormSubmit(event)">
@@ -78,32 +78,32 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="domain" class="form-label">Domaine</label>
+                            <label for="domain" class="form-label">Domain</label>
                             <input type="text" class="form-control" id="domain" name="domain">
                         </div>
 
                         <div class="mb-3">
-                            <label for="simpleDescription" class="form-label required">Description simple</label>
+                            <label for="simpleDescription" class="form-label required">Simple description</label>
                             <input type="text" class="form-control" id="simpleDescription" name="simpleDescription" maxlength="500" required>
                         </div>
 
                         <div class="mb-3">
-                            <label for="detailedDescription" class="form-label">Description détaillée</label>
+                            <label for="detailedDescription" class="form-label">Detailed description</label>
                             <textarea class="form-control" id="detailedDescription" name="detailedDescription" rows="3"></textarea>
                         </div>
 
                         <div class="mb-3">
-                            <label for="link" class="form-label">Lien</label>
+                            <label for="link" class="form-label">Link</label>
                             <input type="url" class="form-control" id="link" name="link">
                         </div>
 
                         <div class="mb-3">
-                            <label for="accessTutorial" class="form-label">Tutoriel</label>
+                            <label for="accessTutorial" class="form-label">Tutorial</label>
                             <textarea class="form-control" id="accessTutorial" name="accessTutorial" rows="3"></textarea>
                         </div>
 
                         <div class="text-center">
-                            <button type="submit" class="btn btn-success btn-lg"><i class="fas fa-check-circle"></i> Ajouter</button>
+                            <button type="submit" class="btn btn-success btn-lg"><i class="fas fa-check-circle"></i> Add</button>
                         </div>
                     </form>
                 </div>
